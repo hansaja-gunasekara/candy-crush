@@ -3,6 +3,7 @@ import { useAppDispatch } from "../store/hooks";
 
 function Tile({ candy, candyId }: { candy: string; candyId: number }) {
   const dispatch = useAppDispatch();
+
   return (
     <div
       className="h-24 w-24 flex justify-center items-center m-0.5 rounded-lg select-none"
@@ -13,7 +14,7 @@ function Tile({ candy, candyId }: { candy: string; candyId: number }) {
       {candy && (
         <img
           src={candy}
-          alt="candy"
+          alt=""
           className="h-20 w-20"
           draggable={true}
           onDragStart={(e) => dispatch(dragStart(e.target))}
@@ -22,7 +23,7 @@ function Tile({ candy, candyId }: { candy: string; candyId: number }) {
           onDragLeave={(e) => e.preventDefault()}
           onDrop={(e) => dispatch(dragDrop(e.target))}
           onDragEnd={() => dispatch(dragEnd())}
-          data-candy-id={candyId}
+          candy-id={candyId}
         />
       )}
     </div>
